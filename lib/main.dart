@@ -10,10 +10,10 @@ import 'package:Appsum/app_bootstrap.dart';
 void main () {
   WidgetsFlutterBinding.ensureInitialized();
   // get selected settings for theme and locale
-  SharedPreferences.getInstance().then((prefs) {
-    final darkModeOn = prefs.getBool('darkMode') ?? true;
-    final selectedLocaleCode = prefs.getString('selectedLocale');
-    var selectedLocale;
+  SharedPreferences.getInstance().then((SharedPreferences prefs) {
+    final bool darkModeOn = prefs.getBool('darkMode') ?? true;
+    final String selectedLocaleCode = prefs.getString('selectedLocale');
+    Locale selectedLocale;
 
     if (selectedLocaleCode != null) {
       if (selectedLocaleCode.split('-').length == 2) {
@@ -27,7 +27,7 @@ void main () {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp(this._darkModeOn, this._selectedLocale,);
+  const MyApp(this._darkModeOn, this._selectedLocale,);
 
   final bool _darkModeOn;
   final Locale _selectedLocale;

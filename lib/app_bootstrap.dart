@@ -9,7 +9,7 @@ import 'localization/app_localizations.dart';
 import 'models/language.dart';
 
 class AppBootstrap extends StatefulWidget {
-  AppBootstrap(this.selectedLocale, {Key key,}) : super(key: key);
+  const AppBootstrap(this.selectedLocale, {Key key,}) : super(key: key);
 
   final Locale selectedLocale;
 
@@ -17,7 +17,7 @@ class AppBootstrap extends StatefulWidget {
   _AppBootstrapState createState() => _AppBootstrapState();
 
   static void setLocale(BuildContext context, Locale locale) {
-    _AppBootstrapState state = context.findAncestorStateOfType<_AppBootstrapState>();
+    final _AppBootstrapState state = context.findAncestorStateOfType<_AppBootstrapState>();
     state.setLocale(locale);
   }
 }

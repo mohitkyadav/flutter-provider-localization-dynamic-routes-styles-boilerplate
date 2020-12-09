@@ -9,18 +9,18 @@ class HomeAppbarActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       child: DropdownButton(
         underline: const SizedBox(),
-        onChanged: (language) {
+        onChanged: (Language language) {
           _changeLanguage(context, language);
         },
         iconEnabledColor: Theme.of(context).accentColor,
-        icon: Icon(Icons.language),
-        items: Language.supportedLanguages.map((lan) => DropdownMenuItem(
+        icon: const Icon(Icons.language),
+        items: Language.supportedLanguages.map((Language lan) => DropdownMenuItem(
             value: lan,
             child: Row(
-              children: [
+              children: <Widget> [
                 Text(lan.flag),
                 const SizedBox(width: 10,),
                 Text(lan.name),
@@ -32,7 +32,7 @@ class HomeAppbarActions extends StatelessWidget {
   }
 
   void _changeLanguage(BuildContext context, Language language) {
-    SharedPreferences.getInstance().then((prefs) {
+    SharedPreferences.getInstance().then((SharedPreferences prefs) {
       prefs.setString('selectedLocale',
           '${language.languageCode}-${language.countryCode}');
       AppBootstrap.setLocale(context,
