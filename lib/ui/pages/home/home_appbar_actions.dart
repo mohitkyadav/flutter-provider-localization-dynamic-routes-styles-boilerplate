@@ -10,6 +10,7 @@ class HomeAppbarActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(5),
+      // ignore: always_specify_types
       child: DropdownButton(
         underline: const SizedBox(),
         onChanged: (Language language) {
@@ -17,6 +18,7 @@ class HomeAppbarActions extends StatelessWidget {
         },
         iconEnabledColor: Theme.of(context).accentColor,
         icon: const Icon(Icons.language),
+        // ignore: always_specify_types
         items: Language.supportedLanguages.map((Language lan) => DropdownMenuItem(
             value: lan,
             child: Row(
